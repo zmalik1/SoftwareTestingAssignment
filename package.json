@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+  "jest": {
+    "setupFilesAfterEnv": ["./src/tests/testSetup.js"]
+  },
   "scripts": {
     "test": "jest"
   },
