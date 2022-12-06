@@ -8,7 +8,7 @@
     "setupFilesAfterEnv": ["./src/tests/testSetup.js"]
   },
   "scripts": {
-    "test": "jest --coverage && coveralls < coverage/lcov.info"
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "MIT",
