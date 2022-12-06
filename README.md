@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/zmalik1/SoftwareTestingAssignment/badge.svg?branch=main)](https://coveralls.io/github/zmalik1/SoftwareTestingAssignment?branch=main)
+
 # Student template
 
 ## Purpose of this repository
