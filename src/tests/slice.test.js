@@ -29,8 +29,8 @@ describe('slice', () => {
     expect(slice([1,2,3], 1, null)).toBeEmpty()
   })
 
-  it('return empty array if start is null', () => {
-    expect(slice([1,2,3], null)).toBeEmpty()
+  it('return the whole array if start is null', () => {
+    expect(slice([1,2,3], null)).toStrictEqual([1,2,3])
   })
 
   it('takes end as offset from array end if end is negative', () => {
