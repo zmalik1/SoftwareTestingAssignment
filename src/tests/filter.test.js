@@ -1,12 +1,37 @@
 import filter from '../filter'
-
-
 describe('filter', () => {
-  it('should return only a', () => {
+  const products = [
+    {
+      Name: 'Apple',
+      Price: 1.2,
+      Available: true
+    },
+    {
+      Name: 'Orange',
+      Price: 2,
+      Available: false
+    },
+    {
+      Name: 'Cherry',
+      Price: 0.5,
+      Available: true
+    },
+    {
+      Name: 'Pear',
+      Price: 1,
+      Available: true
+    },
+    {
+      Name: 'Domestic Apple',
+      Price: 2,
+      Available: true
+    }
+  ]
+  it('returns only a if predicate is equal to a', () => {
     expect(filter('abcabcabc', char => char === 'a')).toStrictEqual(['a', 'a', 'a'])
   })
 
-  it('should be pure', () => {
+  it('is pure', () => {
     const thisShouldNotBeAffected = [1,0,0,0,1]
     const filtered = filter(thisShouldNotBeAffected, number => number === 1)
     expect(filtered)
@@ -18,20 +43,21 @@ describe('filter', () => {
       .toEqual([1,0,0,0,1])
   })
 
-  it('should return empty array if no predicate is matched', () => {
+  it('returns empty array if no predicate is matched', () => {
     expect(filter([1,1,1,1], number => number === 0))
       .toBeArray()
-      .toEqual([])
+      .toBeEmpty()
   })
 
-  it('should return undefined if array is undefined', () => {
+  it('returns undefined if array is undefined', () => {
     const array = undefined
     expect(filter(array, () => true))
       .toBeUndefined()
   })
 
-  it('should not match uppercase when only lowercase if given', () => {
-    const word = 'abcabc'
-    expect(filter(word, char => char === 'A')).toEqual([])
+  it('returns array of objects if matched with object property', () => {
+    const filtered = filter(products, product => product.Available)
+    expect(filtered.find(product => product.Name === 'Orange')).toBeUndefined()
+    expect(filtered.length).toBe(4)
   })
 })
