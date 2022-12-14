@@ -16,11 +16,13 @@ jobs:
       with:
         node-version: 19.x
 
-    - name: npm install, make test-coverage
-      run: |
-        npm install
-        npm test
+    - name: npm install
+      run: npm install
 
+    - name: test
+      run: npm test
+    
+    
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
