@@ -43,17 +43,17 @@ describe('filter', () => {
       .toEqual([1,0,0,0,1])
   })
 
-  // it('returns empty array if no predicate is matched', () => {
-  //   expect(filter([1,1,1,1], number => number === 0))
-  //     .toBeArray()
-  //     .toBeEmpty()
-  // })
+  it('returns empty array if no predicate is matched', () => {
+    expect(filter([1,1,1,1], number => number === 0))
+      .toBeArray()
+      .toBeEmpty()
+  })
 
-  // it('returns undefined if array is undefined', () => {
-  //   const array = undefined
-  //   expect(filter(array, () => true))
-  //     .toBeUndefined()
-  // })
+  it('returns undefined if array is undefined', () => {
+    const array = undefined
+    expect(filter(array, () => true))
+      .toBeUndefined()
+  })
 
   it('returns array of objects if matched with object property', () => {
     const filtered = filter(products, product => product.Available)
