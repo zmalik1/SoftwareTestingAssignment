@@ -6,8 +6,19 @@ describe('countBy', () => {
        { 'user': 'betty', 'active': true },
        { 'user': 'fred', 'active': false }
     ]
+    
     it('check object property', () => {
     const objPro = countBy(users, value => value.active)
     expect(objPro.hasOwnProperty(value => value.user === 'barney'))
     })
+
+    it('check object property', () => {
+        const objPro = countBy(users, value => value.active)
+        expect(objPro.hasOwnProperty(value => value.user === 'betty'))
+    })
+
+    it('check object property', () => {
+        const objPro = countBy(users, value => value.active)
+        expect(objPro.hasOwnProperty(value => value.user === 'fred'))
+    })    
 })
