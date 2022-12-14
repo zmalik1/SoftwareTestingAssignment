@@ -18,9 +18,12 @@ jobs:
 
     - name: npm install
       run: npm install
+      
+    - name: npm install jest
+      run: npm install -g jest
 
     - name: test
-      run: npm test
+      run: jest
     
     
     - name: Coveralls
