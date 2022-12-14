@@ -4,6 +4,12 @@ describe('isEmpty', () => {
   const mapOne = new Map();
   const mapTwo= new Map();
   mapTwo.set('one', 1);
+  const myObject = {
+    color: "Green",
+    funt(){
+      console.log(`Color is ${this.color}`);
+    },
+  };
   it('check empty array', () => {
     expect(isEmpty([], () => true)).toBeEmpty
   })
@@ -30,5 +36,8 @@ describe('isEmpty', () => {
   })
   it('check not empty map', () => {
     expect(isEmpty((mapTwo), () => false)).toBeEmpty
+  })
+  it('Prototype', () => {
+    expect(isEmpty((Object.getPrototypeOf(myObject)), () => true)).toBeEmpty
   })
 })
