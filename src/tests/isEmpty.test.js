@@ -2,42 +2,38 @@ import isEmpty from '../isEmpty'
 
 describe('isEmpty', () => {
   const mapOne = new Map();
-  const mapTwo= new Map();
-  mapTwo.set('one', 1);
+  const setOne = new Set();
   const myObject = {
     color: "Green",
     funt(){
       console.log(`Color is ${this.color}`);
     },
   };
-  it('check empty array', () => {
-    expect(isEmpty([], () => true)).toBeEmpty
+  it('check empty map', () => {
+    expect(isEmpty(mapOne)).toBe(true)
   })
-  it('check empty object', () => {
-    expect(isEmpty({}, () => true)).toBeEmpty
-  })
-  it('check empty string', () => {
-    expect(isEmpty('')).toBeEmpty
+  it('check empty set', () => {
+    expect(isEmpty(setOne)).toBe(true)
   })
   it('check null value', () => {
     expect(isEmpty(null)).toBe(true)
   })
-  it('check not empty array', () => {
-    expect(isEmpty([1, 2, 3], () => false)).toBeEmpty
+  it('check boolean to be true', () => {
+    expect(isEmpty(true)).toBe(true)
   })
-  it('check not empty object', () => {
-    expect(isEmpty({ 'a': 1 }, () => false)).toBeEmpty
+  it('check number', () => {
+    expect(isEmpty(1)).toBe(true)
   })
-  it('check not empty string', () => {
-    expect(isEmpty(('abc'), () => false)).toBeEmpty
+  it('check array', () => {
+    expect(isEmpty([1, 2, 3])).toBe(false)
   })
-  it('check empty map', () => {
-    expect(isEmpty((mapOne), () => true)).toBeEmpty
+  it('check string', () => {
+    expect(isEmpty('abc')).toBe(false)
   })
-  it('check not empty map', () => {
-    expect(isEmpty((mapTwo), () => false)).toBeEmpty
+  it('check object', () => {
+    expect(isEmpty({ 'a': 1 })).toBe(false)
   })
-  it('Prototype', () => {
+  it('Check prototype', () => {
     expect(isEmpty((Object.getPrototypeOf(myObject)), () => true)).toBeEmpty
   })
 })
