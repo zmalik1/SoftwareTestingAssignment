@@ -1,13 +1,18 @@
 import get from '../get'
 
 describe('get', () => {
-  function objPath(object, path){
-    return path.match().reduce ((r, k) => r[k], object );
-  }
   const object = { 'a': [{ 'b': { 'c': 3 } }] }
 
-  it('path', () => {
-    expect(get(objPath(object, 'a[0].b.c')))
+  it('returns 3', () => {
+    expect(get(object, 'a[0].b.c')).toBe(3)
+  })
+
+  it('returns 3', () => {
+    expect(get(object, ['a', '0', 'b', 'c'])).toBe(3)
+  })
+
+  it('check when object to be null', () => {
+    expect(get(object)).toBe(get(null))
   })
 
   it('returns default when default given', () => {
